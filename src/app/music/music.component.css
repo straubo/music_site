@@ -1,0 +1,49 @@
+.songsContainer,
+.videosContainer {
+  /* width: 80%; */
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid black;
+  /* background-color: rgb(255, 236, 183); */
+}
+
+.songsContainer {
+  max-width: 400px;
+}
+
+.musicContainer {
+  padding: 20px;
+}
+.tracksHeader,
+.videosHeader {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.videosHeader {
+  padding-bottom: 15px;
+}
+
+.songContainer {
+  margin: 20px;
+  padding: 5px;
+  background: rgb(180, 180, 180);
+  text-align: center;
+  /* width: 100%; */
+}
+
+.videosContainer {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  flex-wrap: wrap;
+}
+
+.videoRectangle {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  margin: 15px;
+  border-radius: 5px;
+  background-color: rgb(78, 78, 78);
+}

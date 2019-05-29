@@ -1,0 +1,79 @@
+#background {
+  /* background-color: #2b622b; */
+  height: 85vh;
+  /* background-color: rgb(255, 236, 183); */
+}
+
+/* .svgContainer {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.second {
+  left: 175px;
+  top: 450px;
+}
+.cls-1 {
+  stroke: #fff;
+  stroke-dasharray: 1352.439268137;
+  stroke-dashoffset: 1352.439268137;
+  animation: dash 1.75s ease-in-out;
+}
+
+.cls-1,
+.cls-2,
+.cls-3 {
+  fill: none;
+  stroke-miterlimit: 10;
+  pointer-events: none;
+}
+
+.cls-2,
+.cls-3 {
+  stroke: #fff;
+}
+
+.cls-2 {
+  stroke-dasharray: 50.748687744140625;
+  stroke-dashoffset: 50.748687744140625;
+}
+
+.cls-3 {
+  stroke-dasharray: 55.05485534667969;
+  stroke-dashoffset: 55.05485534667969;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.addStroke {
+  stroke: #fff;
+} */
+
+#headerContainer {
+  background-color: #2b622b;
+  position: sticky;
+  z-index: 5;
+  padding: 25px;
+  /* width: 25vw; */
+  /* height: 50px; */
+  /* width: 100vw;
+    height: 100vh; */
+  text-align: center;
+  min-width: 75px;
+  margin: 0 auto;
+}
+
+/* #header {
+    font-family: "Muli", sans-serif;
+    font-size: 36px;
+    font-family: Futura;
+    font-style: italic;
+    padding: 30px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+} */

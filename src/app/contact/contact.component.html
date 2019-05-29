@@ -1,0 +1,38 @@
+<div class="container">
+  <div id="contactHeader">hmu</div>
+  <form class="emailForm" #emailForm="ngForm">
+    <div class="form-group">
+      <label for="fromEmail">from: (return email)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="fromEmail"
+        required
+        [(ngModel)]="model.fromEmail"
+        name="fromEmail"
+      />
+    </div>
+    <div class="form-group">
+      <label for="subject">subject</label>
+      <input
+        type="text"
+        class="form-control"
+        id="emailSubject"
+        [(ngModel)]="model.subject"
+        name="subject"
+      />
+    </div>
+    <div class="form-group">
+      <label for="body">body</label>
+      <textarea
+        type="text"
+        class="form-control"
+        id="emailBody"
+        required
+        [(ngModel)]="model.body"
+        name="body"
+      ></textarea>
+    </div>
+    <button type="submit" class="submitButton">submit</button>
+  </form>
+</div>

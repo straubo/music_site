@@ -1,0 +1,49 @@
+<div class="gigsContainer">
+  <div class="innerGigsContainer" @gigBallIn>
+    <div
+      *ngFor="let gig of gigs; index as i"
+      class="gigCircle"
+      (click)="clickGig(gig)"
+      [ngStyle]="{
+        'background-color': colorNumbers[i % (colorNumbers.length - 1)]
+      }"
+      [ngClass]="{ alreadyHappened: gig.date < nowDate }"
+    >
+      <div class="gigDate">
+        {{ (gig.date | date: "medium").split(",")[0].toLowerCase() }},
+        {{ (gig.date | date: "medium").split(",")[1].toLowerCase() }}
+      </div>
+    </div>
+  </div>
+  <!-- @selectedGigIn -->
+  <div *ngIf="selectedGig != null" class="selectedGigDiv" [@selectedGigIn]>
+    <div class="selectedGigHeader">
+      <span class="xOut" (click)="xOut()">X</span>{{ selectedGig.name }}
+    </div>
+    <div class="selectedGigDate">
+      {{ (selectedGig.date | date: "medium").split(",")[0] }},
+      {{ (selectedGig.date | date: "medium").split(",")[1] }}.
+      {{ (selectedGig.date | date: "medium").split(",")[2] }}
+    </div>
+    <div class="selectedGigLocation">{{ selectedGig.location }}</div>
+    <div class="selectedGigDescription">{{ selectedGig.description }}</div>
+    <div class="selectedGigPrice">{{ selectedGig.price }}</div>
+    <div
+      class="otherActsContainer"
+      *ngIf="selectedGig.hasOwnProperty('otherActs')"
+    >
+      <div class="withDiv">with:</div>
+      <div *ngFor="let otherAct of selectedGig.otherActs" class="otherAct">
+        <div class="otherActName">
+          {{ otherAct.name
+          }}<span *ngIf="otherAct.hasOwnProperty('members')">:</span>
+        </div>
+        <div>
+          <div *ngFor="let bandMember of otherAct.members">
+            {{ bandMember }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

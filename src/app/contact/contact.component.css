@@ -1,0 +1,27 @@
+.emailForm {
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+.form-group label {
+  margin-left: 10px;
+}
+
+.submitButton {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#emailBody {
+  height: 30vh;
+  max-height: 400px;
+}
+
+#contactHeader {
+  font-size: 38px;
+  text-align: center;
+  margin: 0 auto;
+}
