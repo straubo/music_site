@@ -1,14 +1,16 @@
 <div class="musicContainer">
-  <div class="songsContainer">
-    <div class="tracksHeader">tracks</div>
-    <div *ngFor="let song of songs" class="songContainer">
-      <div class="song">{{ song }}</div>
+  <div class="contentsContainer">
+    <div class="songsContainer">
+      <div class="tracksHeader">tracks</div>
+      <div *ngFor="let song of songs" class="songContainer">
+        <div class="song">{{ song.name }}</div>
+      </div>
     </div>
-  </div>
-  <div class="videosHeader">videos</div>
-  <div class="videosContainer">
-    <div *ngFor="let video of videos">
-      <div class="videoRectangle"></div>
+    <div class="videosHeader">videos</div>
+    <div class="videosContainer">
+      <div *ngFor="let video of videos">
+        <div class="videoRectangle"></div>
+      </div>
     </div>
   </div>
 </div>

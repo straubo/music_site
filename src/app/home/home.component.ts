@@ -22,9 +22,48 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private resolver: ComponentFactoryResolver
   ) {}
   @ViewChild(RainContainerDirective) rainHost: RainContainerDirective;
+  // trying raw youtube implant
+  public YT: any;
+  public video: any;
+  public player: any;
+
+  init() {
+    var tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  }
+
+  //
 
   ngOnInit() {
-    this.setTimer();
+    this.init();
+    this.video = "Oeh0fu6yTN8";
+    // "0v63Grap9gI"; // I cover
+    // "Oeh0fu6yTN8&t";
+
+    window["onYouTubeIframeAPIReady"] = e => {
+      this.YT = window["YT"];
+      this.player = new window["YT"].Player("player", {
+        videoId: this.video,
+        events: {
+          onStateChange: this.onPlayerStateChange.bind(this),
+          // 'onError': this.onPlayerError.bind(this),
+          onReady: e => {
+            // if (!this.reframed) {
+            //   this.reframed = true;
+            //   reframe(e.target.a);
+            // }
+          },
+        },
+      });
+    };
+    //
+    // this.setTimer();
+  }
+
+  onPlayerStateChange(event) {
+    console.log(event);
   }
 
   ngAfterViewInit() {}

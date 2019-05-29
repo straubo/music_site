@@ -12,7 +12,16 @@
 }
 
 .musicContainer {
-  padding: 20px;
+  /* padding: 20px; */
+  height: 85vh;
+  background-image: linear-gradient(black, black),
+    url("../../assets/ob_korg1.jpg");
+  background-size: cover;
+  background-blend-mode: saturation;
+}
+.contentsContainer {
+  height: 85vh;
+  overflow-y: scroll;
 }
 .tracksHeader,
 .videosHeader {
