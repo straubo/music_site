@@ -1,0 +1,13 @@
+.footerBody {
+  background-color: grey;
+  height: 80%;
+}
+
+.footerStatement {
+  text-align: center;
+}
+
+.yesNoFooterButton {
+  position: absolute;
+  height: 100%;
+}

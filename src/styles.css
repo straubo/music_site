@@ -3,6 +3,12 @@
 * {
   font-family: "Roboto Mono";
   /* background-color: rgb(255, 236, 183); */
+  overflow-y: hidden;
+  /* background-color: #292929; */
+}
+body {
+  /* I'm picturing an ng class dependant upon which route we're on? */
+  /* background-color: #292929; */
 }
 
 *::-webkit-scrollbar {

@@ -13,6 +13,7 @@ import { ContactComponent } from "./contact/contact.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { RaindropComponent } from "./raindrop/raindrop.component";
 import { RainContainerDirective } from "./rain-container.directive";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RainContainerDirective } from "./rain-container.directive";
     NavbarComponent,
     RaindropComponent,
     RainContainerDirective,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

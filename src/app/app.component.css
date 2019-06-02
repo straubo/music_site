@@ -5,3 +5,11 @@
 /* app-navbar {
   z-index: 100;
 } */
+.footer {
+  position: sticky;
+  height: 40px;
+  /* margin-top: -20px; */
+}
+.routerContainer {
+  height: calc(85vh - 40px);
+}

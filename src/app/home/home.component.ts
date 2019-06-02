@@ -22,42 +22,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private resolver: ComponentFactoryResolver
   ) {}
   @ViewChild(RainContainerDirective) rainHost: RainContainerDirective;
-  // trying raw youtube implant
-  public YT: any;
-  public video: any;
-  public player: any;
-
-  init() {
-    var tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName("script")[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  }
 
   //
 
   ngOnInit() {
-    this.init();
-    this.video = "Oeh0fu6yTN8";
-    // "0v63Grap9gI"; // I cover
-    // "Oeh0fu6yTN8&t";
-
-    window["onYouTubeIframeAPIReady"] = e => {
-      this.YT = window["YT"];
-      this.player = new window["YT"].Player("player", {
-        videoId: this.video,
-        events: {
-          onStateChange: this.onPlayerStateChange.bind(this),
-          // 'onError': this.onPlayerError.bind(this),
-          onReady: e => {
-            // if (!this.reframed) {
-            //   this.reframed = true;
-            //   reframe(e.target.a);
-            // }
-          },
-        },
-      });
-    };
     //
     // this.setTimer();
   }
@@ -83,72 +51,3 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }, 450);
   }
 }
-
-// -------------------------------------------------------------
-// drip1 = () => {
-//   let splash1 = this.renderer.createElement("path", "svg");
-//   this.renderer.addClass(splash1, "cls-2");
-//   this.renderer.setAttribute(
-//     splash1,
-//     "d",
-//     "M780.41,1119.25a66.17,66.17,0,0,1,42.34-25.67"
-//   );
-//   return splash1;
-// };
-// drip2 = () => {
-//   let splash2 = this.renderer.createElement("path", "svg");
-//   this.renderer.addClass(splash2, "cls-3");
-//   this.renderer.setAttribute(
-//     splash2,
-//     "d",
-//     "M762.27,1119.25a71.82,71.82,0,0,0-21.62-17.34,80.11,80.11,0,0,0-25.72-8.33"
-//   );
-//   return splash2;
-// };
-// -------------------------------------------------------------
-
-// rainyDiv;
-// createRaindrop() {
-//   // below works at least surface-level:
-//   let coordinates = [
-//     Math.random() * window.innerWidth - 465,
-//     (3 * (Math.random() * window.innerHeight)) / 4 - 650,
-//   ];
-//   this.rainyDiv = this.renderer.createElement("svg", "svg");
-//   this.renderer.addClass(this.rainyDiv, "svgContainer");
-//   this.renderer.setAttribute(this.rainyDiv, "id", "Layer_1");
-//   this.renderer.setAttribute(this.rainyDiv, "data-name", "Layer 1");
-//   this.renderer.setAttribute(
-//     this.rainyDiv,
-//     "xmlns",
-//     "http://www.w3.org/2000/svg"
-//   );
-//   this.renderer.setAttribute(this.rainyDiv, "width", "600");
-//   this.renderer.setAttribute(this.rainyDiv, "viewBox", "0 0 953 1210");
-//   this.renderer.setStyle(this.rainyDiv, "marginLeft", coordinates[0]);
-//   this.renderer.setStyle(this.rainyDiv, "marginTop", coordinates[1]);
-//   this.renderer.appendChild(this.rainyDiv, this.rainLine());
-
-//   // this.renderer.appendChild(this.rainyDiv, this.drip1());
-//   // this.renderer.appendChild(this.rainyDiv, this.drip2());
-//   this.renderer.appendChild(this.background.nativeElement, this.rainyDiv);
-//   return this.rainyDiv;
-// }
-// rainLine = () => {
-//   let dripLine = this.renderer.createElement("line", "svg");
-//   this.renderer.addClass(dripLine, "cls-1");
-//   this.renderer.setAttribute(dripLine, "x1", "7.34");
-//   this.renderer.setAttribute(dripLine, "y1", "3.14");
-//   this.renderer.setAttribute(dripLine, "x2", "771.85");
-//   this.renderer.setAttribute(dripLine, "y2", "1119.25");
-//   // dripLine.addEventListener("transitionEnd", () => {
-//   //   this.lineDone();
-//   // });
-//   return dripLine;
-// };
-
-// lineDone = () => {
-//   console.log("hi");
-//   this.renderer.appendChild(this.rainyDiv, this.drip1());
-//   this.renderer.appendChild(this.rainyDiv, this.drip2());
-// };
