@@ -1,5 +1,10 @@
 <app-navbar></app-navbar>
-<div [@routeAnimations]="prepareRoute(outlet)" class="routerContainer">
+<!-- router.url === '/home' -->
+<div
+  [@routeAnimations]="prepareRoute(outlet)"
+  class="routerContainer"
+  [ngClass]="{ homePageActive: true }"
+>
   <router-outlet #outlet="outlet"></router-outlet>
 </div>
 <div class="footer">

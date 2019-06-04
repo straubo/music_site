@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
+import { RouterOutlet, Router } from "@angular/router";
 import { slideInAnimation } from "./animations";
 
 @Component({
@@ -9,6 +9,9 @@ import { slideInAnimation } from "./animations";
   animations: [slideInAnimation],
 })
 export class AppComponent {
+  constructor(private router: Router) {
+    // console.log(router.url);
+  }
   prepareRoute(outlet: RouterOutlet) {
     return (
       outlet &&

@@ -1,22 +1,29 @@
 <div id="background" #background>
   <ng-template appRainContainer></ng-template>
-  <!-- <video src="https://www.youtube.com/watch?v=Oeh0fu6yTN8&t=21s" type="video" -->
-  <!-- z-index: -99; -->
-  <div style="position: fixed; width: 120%; height: 100%">
-    <!-- <iframe
-      frameborder="0"
-      height="100%"
-      width="120%"
-      src="https://www.youtube.com/embed/Oeh0fu6yTN8"
-    >
-    </iframe> -->
-
-    <!-- <div id="player"></div> -->
-
-    <!-- night's nice -->
-    <!-- https://www.youtube.com/embed/Oeh0fu6yTN8&t=21s -->
+  <!-- (@firstTrigger.start)="" -->
+  <!-- (@firstTrigger.done)="switchState()" -->
+  <!-- (@firstTrigger.done)="manuallyTimedAnimations($event)" -->
+  <div class="openingRectangle first" [@firstTrigger]="firstState"></div>
+  <!-- (@firstTrigger.start)="titleShift($event)" -->
+  <!-- (@firstTrigger.done)="niceTime($event)" -->
+  <!-- (@secondTrigger.done)="switchState()" -->
+  <div class="openingRectangle second" [@secondTrigger]="secondState"></div>
+  <!-- (@thirdTrigger.done)="switchState()" -->
+  <div class="openingRectangle third" [@thirdTrigger]="thirdState"></div>
+  <div class="openingRectangle fourth" [@fourthTrigger]="fourthState"></div>
+  <div class="nameInBody" [@nameState]="nameState">
+    <span class="nameLetter">c</span>
+    <span class="nameLetter">a</span>
+    <span class="nameLetter">s</span>
+    <span class="nameLetter">e</span>
+    <span class="nameLetter">y</span>
+    <span class="nameLetter"> </span>
+    <span class="nameLetter">b</span>
+    <span class="nameLetter">e</span>
+    <span class="nameLetter">r</span>
+    <span class="nameLetter">m</span>
+    <span class="nameLetter">a</span>
+    <span class="nameLetter">n</span>
   </div>
-  <div class="nameInBody">
-    casey berman
-  </div>
+  <!-- <button (click)="switchState()" style="z-index: 5">oh</button> -->
 </div>
