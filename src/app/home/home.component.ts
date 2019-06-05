@@ -3,8 +3,6 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  AfterViewInit,
-  AfterViewChecked,
   ComponentFactoryResolver,
 } from "@angular/core";
 
@@ -20,6 +18,7 @@ import {
 
 import { RaindropComponent } from "../raindrop/raindrop.component";
 import { RainContainerDirective } from "../rain-container.directive";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -49,7 +48,7 @@ import { RainContainerDirective } from "../rain-container.directive";
         style({
           marginLeft: "75px",
           marginTop: "60px",
-          color: "yellow",
+          color: "blue",
         })
       ),
       state(
@@ -134,12 +133,39 @@ import { RainContainerDirective } from "../rain-container.directive";
           marginLeft: 0,
         })
       ),
-      transition("out => in", [animate("800ms cubic-bezier(1,0,.07,1)")]),
+      transition("out => in", [
+        animate("1200ms cubic-bezier(.85, -0.07, 0, 1.1)"),
+      ]),
+    ]),
+    trigger("homeMenu", [
+      transition("* => *", [
+        query(
+          ".homeRouterLink",
+          style({
+            opacity: 0,
+            transform: "translateY(-20px)",
+            // transform: "translate (-20px, -20px)",
+          }),
+          { optional: true }
+        ),
+        query(
+          ".homeRouterLink",
+          stagger("400ms", [
+            animate(
+              "500ms ease-out",
+              style({ opacity: 1, transform: "translateY(0)" })
+            ),
+          ])
+        ),
+      ]),
     ]),
   ],
 })
-export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
-  constructor(private resolver: ComponentFactoryResolver) {}
+export class HomeComponent implements OnInit {
+  constructor(
+    private resolver: ComponentFactoryResolver,
+    private router: Router
+  ) {}
   @ViewChild(RainContainerDirective) rainHost: RainContainerDirective;
 
   ngOnInit() {
@@ -150,7 +176,9 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     this.secondState = "out";
     this.thirdState = "out";
     this.fourthState = "out";
+    this.menuIn = false;
     this.manuallyTimedAnimations();
+    this.fourthTriggerCount = 0;
   }
 
   nameState: string;
@@ -158,6 +186,8 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
   secondState: string;
   thirdState: string;
   fourthState: string;
+  menuIn: boolean;
+  fourthTriggerCount: number;
 
   verticalTime = 800;
   horizontalTime = 600;
@@ -168,30 +198,6 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   titleShift(event: AnimationEvent) {
     console.log("coming from the title shift: " + event);
-  }
-
-  switchState(event: AnimationEvent) {
-    // if (event.phaseName === "done") {
-    switch (this.nameState) {
-      case "normal":
-        this.nameState = "down";
-        this.firstState = "in";
-        break;
-      case "down":
-        this.nameState = "downRight";
-        this.secondState = "in";
-        break;
-      case "downRight":
-        this.nameState = "right";
-        this.thirdState = "in";
-        break;
-      case "right":
-        this.nameState = "normal";
-        this.fourthState = "in";
-        break;
-    }
-    // console.log(console.log(event.phaseName));
-    // }
   }
 
   manuallyTimedAnimations() {
@@ -210,12 +216,18 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     setTimeout(() => {
       this.fourthState = "in";
       this.nameState = "normal";
-      console.log("all done now!");
     }, 2 * this.verticalTime + this.horizontalTime);
   }
 
-  ngAfterViewChecked() {}
-  ngAfterViewInit() {}
+  // this.menuIn = true;
+  // absurd that I have to do this... animation count check
+  fourthTriggerDone(event: AnimationEvent) {
+    this.fourthTriggerCount += 1;
+    if (this.fourthTriggerCount == 2) {
+      this.menuIn = true;
+    }
+  }
+
   addRaindrop() {
     let componentFactory = this.resolver.resolveComponentFactory(
       RaindropComponent

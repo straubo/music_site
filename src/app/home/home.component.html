@@ -1,16 +1,13 @@
 <div id="background" #background>
   <ng-template appRainContainer></ng-template>
-  <!-- (@firstTrigger.start)="" -->
-  <!-- (@firstTrigger.done)="switchState()" -->
-  <!-- (@firstTrigger.done)="manuallyTimedAnimations($event)" -->
   <div class="openingRectangle first" [@firstTrigger]="firstState"></div>
-  <!-- (@firstTrigger.start)="titleShift($event)" -->
-  <!-- (@firstTrigger.done)="niceTime($event)" -->
-  <!-- (@secondTrigger.done)="switchState()" -->
   <div class="openingRectangle second" [@secondTrigger]="secondState"></div>
-  <!-- (@thirdTrigger.done)="switchState()" -->
   <div class="openingRectangle third" [@thirdTrigger]="thirdState"></div>
-  <div class="openingRectangle fourth" [@fourthTrigger]="fourthState"></div>
+  <div
+    class="openingRectangle fourth"
+    [@fourthTrigger]="fourthState"
+    (@fourthTrigger.done)="fourthTriggerDone($event)"
+  ></div>
   <div class="nameInBody" [@nameState]="nameState">
     <span class="nameLetter">c</span>
     <span class="nameLetter">a</span>
@@ -25,13 +22,20 @@
     <span class="nameLetter">a</span>
     <span class="nameLetter">n</span>
   </div>
-  <!-- <div class="homeMenu">
-    <div>
+  <div class="homeMenu" *ngIf="menuIn" @homeMenu>
+    <div routerLink="/music" class="homeRouterLink">
+      <div class="homeMenuPlus">+</div>
+      <div class="absoluteLink">music</div>
+    </div>
 
+    <div routerLink="/gigs" class="homeRouterLink">
+      <div class="homeMenuPlus">+</div>
+      <div class="absoluteLink">shows</div>
     </div>
-    <div>
-      
+    <div routerLink="/contact" class="homeRouterLink">
+      <div class="homeMenuPlus">+</div>
+      <div class="absoluteLink">contact</div>
     </div>
-  </div> -->
+  </div>
   <!-- <button (click)="switchState()" style="z-index: 5">oh</button> -->
 </div>
