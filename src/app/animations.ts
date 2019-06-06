@@ -44,6 +44,7 @@ export const slideInAnimation = trigger("routeAnimations", [
       { optional: true }
     ),
     query("@gigBallIn", animateChild(), { optional: true }),
+    query("@songRectangleIn", animateChild(), { optional: true }),
   ]),
 
   transition("*=> HomePage", [
@@ -78,11 +79,10 @@ export const slideInAnimation = trigger("routeAnimations", [
       ],
       { optional: true }
     ),
-    query("@gigBallIn", animateChild(), { optional: true }),
   ]),
 
   // ---------------------------------------------------------------------
-  // all pages where we shift rightwards
+  // // all pages where we shift rightwards
   transition(
     "ContactPage => MusicPage, ContactPage => GigsPage, GigsPage => MusicPage",
     [
@@ -96,19 +96,30 @@ export const slideInAnimation = trigger("routeAnimations", [
         }),
       ]),
       query(":enter", [style({ left: "-100%" })], { optional: true }),
-      query(":leave", [style({left: "0%"})]
-      animateChild(), { optional: true }),
+      query(":leave", [style({ left: "0%" })]),
       group([
-        query(":leave", [animate("700ms ease-out", style({ opacity: 0 }))], {
-          optional: true,
-        }),
+        query(
+          ":leave",
+          [
+            animate(
+              "700ms ease-out",
+              style({
+                left: "100%",
+              })
+            ),
+          ],
+          {
+            optional: true,
+          }
+        ),
         query(
           ":enter",
           [animate("800ms ease-out", style({ top: "0vh", left: "0" }))],
           { optional: true }
         ),
       ]),
-      query("@gigBallIn", animateChild(), {optional: true}),
+      query("@gigBallIn", animateChild(), { optional: true }),
+      query("@songRectangleIn", animateChild(), { optional: true }),
     ]
   ),
   // // all pages where we shift leftwards
@@ -135,7 +146,7 @@ export const slideInAnimation = trigger("routeAnimations", [
         }),
       ]),
       query(":enter", animateChild()),
-      query("@gigBallIn", animateChild(), {optional: true}),
+      query("@gigBallIn", animateChild(), { optional: true }),
     ]
   ),
 ]);

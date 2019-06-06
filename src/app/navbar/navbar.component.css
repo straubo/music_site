@@ -8,7 +8,8 @@
 #totalNavbar {
   width: 100%;
   height: 15vh;
-  background-color: #292929;
+  /* background-color: #292929; */
+  background-color: #0f1438;
   color: white;
   /* opacity: 0; */
   /* background-color: rgba(109, 109, 109, 0.459); */
@@ -25,4 +26,9 @@
 
 #totalNavBar div {
   padding-top: 10px;
+}
+
+.currentRoute {
+  text-decoration: underline;
+  color: #b5b5b5;
 }

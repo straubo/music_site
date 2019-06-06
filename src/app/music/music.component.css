@@ -13,10 +13,11 @@
 
 .musicContainer {
   height: 85vh;
-  background-image: linear-gradient(black, black),
-    url("../../assets/ob_korg1.jpg");
-  background-size: cover;
-  background-blend-mode: saturation;
+  background-color: #0f1438;
+  /* background-image: linear-gradient(black, black),
+    url("../../assets/ob_korg1.jpg"); */
+  /* background-size: cover; */
+  /* background-blend-mode: saturation; */
 }
 .contentsContainer {
   height: 85vh;
@@ -29,20 +30,35 @@
   text-align: center;
   padding-top: 15px;
   display: block;
+  font-size: 32px;
+  color: #f0ead6;
 }
 
 .videosHeader {
   padding-bottom: 15px;
 }
-
+/* 
 .songContainer {
   width: 50%;
   height: 50vw;
   border: 1px solid black;
-  /* margin: 15px; */
-  /* border-radius: 5px; */
   background-color: rgb(78, 78, 78);
   display: inline-flex;
+} */
+
+.songContainer {
+  width: 100%;
+  /* border-radius: 0 30px 30px 0; */
+  text-align: center;
+  border-radius: 0 30px 0;
+  left: 0;
+  height: 110px;
+  background-color: rgb(46, 46, 196);
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .videosContainer {
@@ -59,4 +75,8 @@
   margin: 15px;
   border-radius: 5px;
   background-color: rgb(78, 78, 78);
+}
+
+.songTitle {
+  font-size: 25px;
 }

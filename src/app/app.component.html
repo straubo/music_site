@@ -1,13 +1,9 @@
 <app-navbar></app-navbar>
-<!-- router.url === '/home' -->
 <div
   [@routeAnimations]="prepareRoute(outlet)"
   class="routerContainer"
   [@shorterBody]="currentlyOnHome ? 'longer' : 'shorter'"
 >
-  <!-- [ngClass]="{ homePageActive: true }"
- -->
-  <!-- [@animateIn]="(router.url != /home) ? in : out" -->
   <router-outlet #outlet="outlet"></router-outlet>
 </div>
 <div class="footer">

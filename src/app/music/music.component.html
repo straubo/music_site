@@ -1,9 +1,13 @@
 <div class="musicContainer">
   <div class="contentsContainer">
     <div class="tracksHeader">tracks</div>
-    <div class="songsContainer">
-      <div *ngFor="let song of songs" class="songContainer">
-        <div class="song">{{ song.name }}</div>
+    <div class="songsContainer" [@songRectangleIn]>
+      <div
+        *ngFor="let song of songs; index as i"
+        class="songContainer"
+        [ngStyle]="{ backgroundColor: colors[i] }"
+      >
+        <div class="songTitle">{{ song.name }}</div>
       </div>
     </div>
     <div class="videosHeader">videos</div>
