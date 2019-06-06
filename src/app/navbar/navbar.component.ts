@@ -9,7 +9,7 @@ import {
   query,
   stagger,
 } from "@angular/animations";
-import { url } from "inspector";
+// import { url } from "inspector";
 
 @Component({
   selector: "app-navbar",
@@ -20,7 +20,6 @@ import { url } from "inspector";
       state(
         "out",
         style({
-          // height: "0vh",
           marginTop: "-15vh",
           opacity: "0",
         })
@@ -28,7 +27,6 @@ import { url } from "inspector";
       state(
         "in",
         style({
-          // height: "15vh",
           marginTop: "0",
           opacity: "1",
         })

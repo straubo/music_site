@@ -10,7 +10,7 @@
   height: 15vh;
   /* background-color: #292929; */
   background-color: #0f1438;
-  color: white;
+  color: #f0ead6;
   /* opacity: 0; */
   /* background-color: rgba(109, 109, 109, 0.459); */
   /* background-color: rgb(255, 236, 183); */
@@ -22,6 +22,7 @@
   text-decoration: none;
   outline: none;
   padding-top: 10px;
+  color: #f0ead6;
 }
 
 #totalNavBar div {

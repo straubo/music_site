@@ -1,13 +1,35 @@
 .footerBody {
-  background-color: grey;
-  height: 80%;
+  height: 100%;
+  /* border-top: 1px solid #f0ead6; */
 }
 
 .footerStatement {
   text-align: center;
+  margin: 0 auto;
+}
+.allButButton {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  height: 100%;
+  /* width: calc(100% - 40px); */
+  width: 100%;
+  vertical-align: top;
+  text-align: center;
+  color: #f0ead6;
 }
 
 .yesNoFooterButton {
+  outline: none;
+  border: none;
+  border-top: 1px solid #f0ead6;
+  border-right: 1px solid #f0ead6;
+  background-color: rgb(117, 117, 117);
+  color: #f0ead6;
+  /* display: inline-block; */
   position: absolute;
-  height: 100%;
+  height: 40px;
+  vertical-align: top;
+  width: 40px;
 }

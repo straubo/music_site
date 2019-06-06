@@ -8,7 +8,6 @@
   border-radius: 50%;
   height: 100px;
   width: 100px;
-  /* background-color: rgb(185, 3, 3); */
   text-align: center;
   margin: 30px;
   border: 2px solid black;
@@ -26,10 +25,10 @@
 .gigsContainer {
   /* height: 85vh; */
   height: 100%;
-  background-image: linear-gradient(black, black),
+  /* background-image: linear-gradient(black, black),
     url("../../assets/ob_korg1.jpg");
   background-size: cover;
-  background-blend-mode: saturation;
+  background-blend-mode: saturation; */
 }
 
 .innerGigsContainer {

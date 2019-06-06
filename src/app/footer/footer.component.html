@@ -1,9 +1,11 @@
 <div class="footerBody" [ngClass]="{ extendedFooter: footerUp }">
-  <div *ngIf="footerUp">trying more</div>
-  <div>
-    <button class="yesNoFooterButton" (click)="this.toggleFooter()">
-      ^
-    </button>
-    <div class="footerStatement">site made with angular and love</div>
+  <button class="yesNoFooterButton" (click)="this.timeToToggle()">
+    ^
+  </button>
+  <div class="allButButton">
+    <div *ngIf="footerUp" class="playerContainer">trying more</div>
+    <div>
+      <div class="footerStatement">site made with angular and love</div>
+    </div>
   </div>
 </div>

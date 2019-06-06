@@ -8,5 +8,6 @@ export class FooterUpService {
   footerUp: boolean = false;
   toggleFooter() {
     this.footerUp = !this.footerUp;
+    console.log("holy shet");
   }
 }
