@@ -36,7 +36,8 @@
   /* padding: 40px 20px; */
   /* max-height: 73vh; */
   /* min-height: 65vh; */
-  height: 85vh;
+  height: calc(85vh - 40px);
+  /* height: 85vh; */
   /* height: 100%; */
   overflow-y: scroll;
   display: flex;
