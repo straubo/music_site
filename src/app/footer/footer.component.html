@@ -1,10 +1,7 @@
 <div class="footerBody" [ngClass]="{ extendedFooter: footerUp }">
   <div *ngIf="footerUp">trying more</div>
   <div>
-    <button
-      class="yesNoFooterButton"
-      (click)="this.footerUpService.toggleFooter()"
-    >
+    <button class="yesNoFooterButton" (click)="this.toggleFooter()">
       ^
     </button>
     <div class="footerStatement">site made with angular and love</div>

@@ -24,7 +24,8 @@
 }
 
 .gigsContainer {
-  height: 85vh;
+  /* height: 85vh; */
+  height: 100%;
   background-image: linear-gradient(black, black),
     url("../../assets/ob_korg1.jpg");
   background-size: cover;
@@ -36,6 +37,7 @@
   /* max-height: 73vh; */
   /* min-height: 65vh; */
   height: 85vh;
+  /* height: 100%; */
   overflow-y: scroll;
   display: flex;
   justify-content: space-between;

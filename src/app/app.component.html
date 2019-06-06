@@ -3,8 +3,11 @@
 <div
   [@routeAnimations]="prepareRoute(outlet)"
   class="routerContainer"
-  [ngClass]="{ homePageActive: true }"
+  [@shorterBody]="currentlyOnHome ? 'longer' : 'shorter'"
 >
+  <!-- [ngClass]="{ homePageActive: true }"
+ -->
+  <!-- [@animateIn]="(router.url != /home) ? in : out" -->
   <router-outlet #outlet="outlet"></router-outlet>
 </div>
 <div class="footer">

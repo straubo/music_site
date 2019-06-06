@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FooterUpService } from "../footer-up.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-footer",
@@ -9,8 +10,22 @@ import { FooterUpService } from "../footer-up.service";
 export class FooterComponent implements OnInit {
   footerUp: boolean;
 
-  constructor(footerUpService: FooterUpService) {
+  constructor(footerUpService: FooterUpService, private router: Router) {
     this.footerUp = footerUpService.footerUp;
+    this.currentlyOnHome = true;
+    router.events.subscribe(val => {
+      if (val.hasOwnProperty("url")) {
+        if (val["url"] === "/home" || val["url"] === "/") {
+          this.currentlyOnHome = true;
+        } else {
+          this.currentlyOnHome = false;
+        }
+      }
+    });
+  }
+  currentlyOnHome: boolean;
+  timeToToggle() {
+    // footerUpService.toggleFooter();
   }
 
   ngOnInit() {

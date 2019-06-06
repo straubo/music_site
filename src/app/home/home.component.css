@@ -72,6 +72,11 @@
   animation-timing-function: cubic-bezier(0.46, 0.07, 0, 0.03);
 }
 
+.homeRouterLink {
+  text-decoration: none;
+  outline: none;
+}
+
 @keyframes glowingCross {
   from {
     color: black;

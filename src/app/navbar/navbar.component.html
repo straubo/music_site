@@ -1,5 +1,6 @@
 <!-- *ngIf="router.url != '/home'" -->
-<div id="totalNavbar" *ngIf="router.url != '/home'">
+<!-- [@routerIn]="router.url != '/home' ? 'in' : 'out'" -->
+<div id="totalNavbar" [@routerIn]="currentlyOnHome ? 'out' : 'in'">
   <div class="siteHeader" routerLink="/">casey berman</div>
   <div class="routerLink" routerLink="music">music</div>
   <div class="routerLink" routerLink="gigs">gigs</div>

@@ -11,7 +11,7 @@ import {
 } from "@angular/animations";
 
 export const slideInAnimation = trigger("routeAnimations", [
-  transition("* => HomePage", [
+  transition("HomePage => *", [
     style({ position: "relative" }),
     query(":enter, :leave", [
       style({
@@ -25,9 +25,10 @@ export const slideInAnimation = trigger("routeAnimations", [
     query(
       ":enter",
       [
-        // style({
-        //   left: "-100%",
-        // }),
+        style({
+          left: "-100%",
+        }),
+        animate("800ms", style({ left: 0 })),
       ],
       {
         optional: true,
@@ -40,19 +41,25 @@ export const slideInAnimation = trigger("routeAnimations", [
         ":leave",
         [
           // animate("700ms ease-out", style({ left: "100%", opacity: 0 })),
-          animate("900ms ease-in-out", style({ opacity: 0 })),
+          animate("800ms ease-in-out", style({ opacity: 0 })),
         ],
         { optional: true }
       ),
       query(
         ":enter",
-        [animate("800ms 1s cubic-bezier(.9,.3,.8,.3)", style({ left: "0%" }))],
+        [
+          animate(
+            "800ms 1500ms cubic-bezier(.9,.3,.8,.3)",
+            style({ opacity: "1" })
+          ),
+        ],
         { optional: true }
       ),
     ]),
     // query("@gigBallIn", animateChild()),
   ]),
-  transition("* => GigsPage", [
+  transition("* => HomePage", []),
+  transition("MusicPage => GigsPage, ContactPage => GigsPage", [
     style({ position: "relative" }),
     query(":enter, :leave", [
       style({
@@ -62,18 +69,12 @@ export const slideInAnimation = trigger("routeAnimations", [
         width: "100%",
       }),
     ]),
-    //   query(":enter", [style({ left: "-100%" })]),
     query(":enter", [style({ top: "100vh" })], { optional: true }),
     query(":leave", animateChild(), { optional: true }),
     group([
-      query(
-        ":leave",
-        [
-          // animate("700ms ease-out", style({ left: "100%", opacity: 0 })),
-          animate("700ms ease-out", style({ opacity: 0 })),
-        ],
-        { optional: true }
-      ),
+      query(":leave", [animate("700ms ease-out", style({ opacity: 0 }))], {
+        optional: true,
+      }),
       query(
         ":enter",
         [animate("800ms ease-out", style({ top: "0vh", left: "0" }))],
@@ -82,7 +83,7 @@ export const slideInAnimation = trigger("routeAnimations", [
     ]),
     query("@gigBallIn", animateChild()),
   ]),
-  transition("* <=> MusicPage", [
+  transition("GigsPage => MusicPage, ContactPage => MusicPage", [
     style({ position: "relative" }),
     query(":enter, :leave", [
       style({
@@ -104,7 +105,7 @@ export const slideInAnimation = trigger("routeAnimations", [
     ]),
     query(":enter", animateChild()),
   ]),
-  transition("* <=> ContactPage", [
+  transition("* => ContactPage", [
     style({ position: "relative" }),
     query(":enter, :leave", [
       style({
