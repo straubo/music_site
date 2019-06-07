@@ -25,17 +25,24 @@
 
 .second {
   z-index: 2;
-  background-color: rgb(163, 163, 163);
+  /* background-color: rgb(163, 163, 163); */
+  /* background-color: #e2b0b0; */
+  background-color: #73a6c3;
 }
 
 .third {
   z-index: 3;
-  background-color: rgb(99, 99, 99);
+  /* background-color: rgb(99, 99, 99); */
+  /* background-color: #5f2222; */
+  background-color: #27607b;
 }
 
 .fourth {
   z-index: 4;
-  background-color: rgb(65, 65, 65);
+  /* background-color: rgb(65, 65, 65); */
+  background-color: #0f1438;
+  /* #292929; */
+  /* #1f542d; */
 }
 
 .nameInBody {
@@ -48,6 +55,7 @@
   display: inline-flex;
   flex-direction: column;
   /* justify-items: center; */
+  font-size: 26px;
   justify-content: space-around;
 }
 
@@ -79,7 +87,7 @@
 
 @keyframes glowingCross {
   from {
-    color: black;
+    color: rgb(30, 36, 85);
   }
   to {
     color: rgb(196, 196, 196);

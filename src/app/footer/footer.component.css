@@ -1,6 +1,6 @@
 .footerBody {
   height: 100%;
-  /* border-top: 1px solid #f0ead6; */
+  /* border-top: 5px solid #f0ead6; */
 }
 
 .footerStatement {
@@ -32,4 +32,10 @@
   height: 40px;
   vertical-align: top;
   width: 40px;
+}
+
+.playerContainer audio {
+  height: 20px;
+  border-radius: 0;
+  width: 278px;
 }

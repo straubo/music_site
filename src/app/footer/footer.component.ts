@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FooterUpService } from "../footer-up.service";
 import { Router } from "@angular/router";
+import { Song } from "../music/song";
 
 @Component({
   selector: "app-footer",
@@ -29,7 +30,17 @@ export class FooterComponent implements OnInit {
   }
   ngOnInit() {
     this.footerUp = false;
+    this.selectedSong = {
+      name: "80's Car",
+      link: "../../assets/space_ad_petes.wav",
+    };
   }
+  selectedSong: Song;
+
+  pickANewSong(newSong) {
+    this.selectedSong = newSong;
+  }
+
   currentlyOnHome: boolean;
   timeToToggle() {
     // this.footerUpService.toggleFooter();

@@ -6,6 +6,7 @@
         *ngFor="let song of songs; index as i"
         class="songContainer"
         [ngStyle]="{ backgroundColor: colors[i] }"
+        (click)="setAudioSrc(song)"
       >
         <div class="songTitle">{{ song.name }}</div>
       </div>

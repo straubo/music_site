@@ -33,6 +33,7 @@
 .cls-3 {
   /* stroke: #fff; */
   stroke: #000;
+  /* z-index: 0; */
   /* animation: dash 0.5s 0.75s ease-in-out; */
 
   /* this is perfectly timed for now.... delete parent

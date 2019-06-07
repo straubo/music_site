@@ -1,6 +1,9 @@
+<div class="dynamicContainer">
+  <ng-template appRainContainer></ng-template>
+</div>
 <div class="container">
-  <div id="contactHeader">hmu</div>
-  <form class="emailForm" #emailForm="ngForm">
+  <div id="contactHeader" *ngIf="formHeaderIn" [@fadeIn]>hmu</div>
+  <form class="emailForm" #emailForm="ngForm" *ngIf="formIn" [@fadeIn]>
     <div class="form-group">
       <label for="fromEmail">from: (return email)</label>
       <input

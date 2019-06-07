@@ -3,9 +3,13 @@
     ^
   </button>
   <div class="allButButton">
-    <div *ngIf="footerUp" class="playerContainer">trying more</div>
+    <div *ngIf="footerUp" class="playerContainer">
+      <audio controls>
+        <source src="{{ selectedSong.link }}" />
+      </audio>
+    </div>
     <div>
-      <div class="footerStatement">site made with angular and love</div>
+      <div class="footerStatement">site made w/ love (and Angular 7)</div>
     </div>
   </div>
 </div>

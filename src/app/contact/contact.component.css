@@ -1,10 +1,22 @@
+.container {
+  color: #f0ead6;
+  z-index: 5;
+  /* padding-top: 20px; */
+}
+.dynamicContainer {
+  z-index: -5;
+  position: relative;
+}
 .emailForm {
-  border: 1px solid black;
+  border: 5px solid #f0ead6;
   padding: 7px;
   border-radius: 5px;
-  width: 80%;
-  max-width: 550px;
-  margin: 0 auto;
+  width: 85%;
+  max-width: 450px;
+  margin: 10px auto;
+  /* background-color: #841313; */
+  /* background-color: #426ca0; */
+  background-color: #235635;
 }
 .form-group label {
   margin-left: 10px;
@@ -13,6 +25,9 @@
 .submitButton {
   margin: 0 auto;
   text-align: center;
+  background-color: rgb(48, 48, 48);
+  border: none;
+  outline: none;
 }
 
 #emailBody {
@@ -24,4 +39,18 @@
   font-size: 38px;
   text-align: center;
   margin: 0 auto;
+}
+
+textarea.form-control {
+  background-color: #f0ead6;
+}
+
+.form-control {
+  background-color: #f0ead6;
+}
+
+@media (min-height: 720px) {
+  .container {
+    padding-top: 20px;
+  }
 }

@@ -18,6 +18,7 @@ import {
 
 import { RaindropComponent } from "../raindrop/raindrop.component";
 import { RainContainerDirective } from "../rain-container.directive";
+
 import { Router } from "@angular/router";
 
 @Component({
@@ -32,7 +33,8 @@ import { Router } from "@angular/router";
         style({
           marginLeft: "0",
           marginTop: "0",
-          color: "red",
+          // color: "red",
+          color: "#e6e6e6",
         })
       ),
       state(

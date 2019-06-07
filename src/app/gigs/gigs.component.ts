@@ -60,7 +60,7 @@ export class GigsComponent implements OnInit {
         date: new Date("July 13, 2019 20:30"),
         name: "House Show Coming Up",
         description:
-          "blah blah blah blah blah blah blahblah blah blah blah blah blah blah",
+          "Sweaty warehouse show at Dodge 112 in Boerum Hill. Yo! Komodo coming from Boston",
         otherActs: [
           {
             name: "Full Salon",
