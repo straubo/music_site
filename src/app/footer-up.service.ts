@@ -4,7 +4,10 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class FooterUpService {
-  constructor() {}
+  constructor() {
+    // this.generated = false;
+  }
+  // generated: boolean;
   footerUp: boolean = false;
   toggleFooter() {
     this.footerUp = !this.footerUp;

@@ -4,12 +4,26 @@
   </button>
   <div class="allButButton">
     <div *ngIf="footerUp" class="playerContainer">
-      <audio controls>
+      <audio>
         <source src="{{ selectedSong.link }}" />
       </audio>
+      <div>
+        <button onclick="document.getElementById('player').play()">Play</button>
+        <button onclick="document.getElementById('player').pause()">
+          Pause
+        </button>
+        <button onclick="document.getElementById('player').volume += 0.1">
+          Vol +
+        </button>
+        <button onclick="document.getElementById('player').volume -= 0.1">
+          Vol -
+        </button>
+      </div>
     </div>
     <div>
-      <div class="footerStatement">site made w/ love (and Angular 7)</div>
+      <div class="footerStatement" *ngIf="!footerUp">
+        site made w/ love (and Angular 7)
+      </div>
     </div>
   </div>
 </div>

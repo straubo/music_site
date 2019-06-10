@@ -34,7 +34,8 @@ import { Router } from "@angular/router";
           marginLeft: "0",
           marginTop: "0",
           // color: "red",
-          color: "#e6e6e6",
+          // color: "#e6e6e6",
+          color: "white",
         })
       ),
       state(
@@ -50,7 +51,10 @@ import { Router } from "@angular/router";
         style({
           marginLeft: "75px",
           marginTop: "60px",
-          color: "blue",
+          // color: "blue",
+          // color: "#eea926",
+          // color: "#317038",
+          color: "black",
         })
       ),
       state(

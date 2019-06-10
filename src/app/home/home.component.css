@@ -2,7 +2,7 @@
   height: 100vh;
   left: 0;
   /* background-color: #202b42; */
-  background-color: #292929;
+  background-color: #0e203b;
   display: flex;
   /* flex-direction: column; */
   justify-content: space-between;
@@ -20,27 +20,32 @@
 
 .first {
   z-index: 1;
-  background-color: rgb(199, 199, 199);
+  /* background-color: rgb(199, 199, 199); */
+
+  background-color: #42744c;
 }
 
 .second {
   z-index: 2;
   /* background-color: rgb(163, 163, 163); */
   /* background-color: #e2b0b0; */
-  background-color: #73a6c3;
+  /* background-color: #42744c; */
+  background-color: #2c5fa1;
 }
 
 .third {
   z-index: 3;
   /* background-color: rgb(99, 99, 99); */
   /* background-color: #5f2222; */
-  background-color: #27607b;
+  /* background-color: #9e1b1b; */
+  background-color: #3f0d0d;
 }
 
 .fourth {
   z-index: 4;
   /* background-color: rgb(65, 65, 65); */
-  background-color: #0f1438;
+  /* background-color: #0f1438; */
+  background-color: #0e203b;
   /* #292929; */
   /* #1f542d; */
 }
@@ -48,13 +53,13 @@
 .nameInBody {
   z-index: 5;
   color: white;
-  /* margin: 0 auto; */
   width: 45%;
   height: 80%;
   text-align: center;
   display: inline-flex;
   flex-direction: column;
-  /* justify-items: center; */
+  align-items: center;
+  flex-wrap: wrap;
   font-size: 26px;
   justify-content: space-around;
 }
@@ -74,6 +79,7 @@
 .homeMenuPlus {
   font-size: 79px;
   animation-name: glowingCross;
+  /* font-family: "Roboto Mono"; */
   animation-duration: 3s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -87,7 +93,7 @@
 
 @keyframes glowingCross {
   from {
-    color: rgb(30, 36, 85);
+    color: rgb(70, 70, 70);
   }
   to {
     color: rgb(196, 196, 196);
@@ -96,9 +102,11 @@
 
 .absoluteLink {
   position: absolute;
-  margin-top: -47px;
+  margin-top: -42px;
   margin-left: 34px;
+  font-size: 18px;
   color: white;
+  text-decoration: underline;
 }
 
 /* .svgContainer {

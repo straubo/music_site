@@ -4,12 +4,14 @@
   display: inline-block;
   text-decoration: none;
   outline: none;
+  font-size: 24px;
 }
 #totalNavbar {
   width: 100%;
   height: 15vh;
   /* background-color: #292929; */
-  background-color: #0f1438;
+  /* background-color: #0f1438; */ /*older */
+  background-color: #0e203b; /* here's stuff */
   color: #f0ead6;
   border-bottom: 5px solid #f0ead6;
   /* opacity: 0; */
@@ -38,5 +40,11 @@
 @media (min-height: 745px) {
   .routerLink {
     padding-top: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .routerLink {
+    font-size: 16px;
   }
 }

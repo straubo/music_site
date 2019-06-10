@@ -1,7 +1,19 @@
 @import url("https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css");
-
+@font-face {
+  font-family: "neue_montreal_bold";
+  src: url("./assets/NeueMontreal-FreeForPersonalUse/NeueMontreal-FreeForPersonalUse/NeueMontreal-Bold.otf");
+}
+@font-face {
+  font-family: "neue_montreal_light";
+  src: url("./assets/NeueMontreal-FreeForPersonalUse/NeueMontreal-FreeForPersonalUse/NeueMontreal-Light.otf");
+}
 * {
-  font-family: "Roboto Mono";
+  /* font-family: "Roboto Mono"; */
+  /* font-family: "Futura"; */
+  /* font-family: "Helvetica Neue"; */
+  font-family: "Fredoka One";
+  /* font-family: "Roboto", "sans-sarif"; */
+  /* font-family: "neue_montreal_bold"; */
   /* background-color: rgb(255, 236, 183); */
   overflow-y: hidden;
   /* background-color: #292929; */
