@@ -10,6 +10,7 @@ import { Song } from "../music/song";
 })
 export class FooterComponent implements OnInit {
   footerUp: boolean;
+  audio = new Audio();
 
   constructor(
     private footerUpService: FooterUpService,
@@ -38,13 +39,45 @@ export class FooterComponent implements OnInit {
   selectedSong: Song;
 
   pickANewSong(newSong) {
-    this.selectedSong = newSong;
+    // this.selectedSong = newSong;
+    this.startNewAudio(newSong.link);
   }
 
   currentlyOnHome: boolean;
   timeToToggle() {
     // this.footerUpService.toggleFooter();
     this.footerUp = !this.footerUp;
+  }
+
+  // audio player stuff:
+
+  startNewAudio(a?) {
+    // this.audio = new Audio();
+    this.audio.src = "../../assets/" + (a ? a : "space_ad_petes.wav");
+    this.audio.load();
+    this.audio.play();
+  }
+
+  playAudio(a?) {
+    // console.log("playing!");
+    // if (this.audio && this.audio.hasOwnProperty("src")) {
+    this.audio.play();
+    // } else {
+    //   this.startNewAudio();
+    // }
+  }
+  pauseAudio() {
+    this.audio.pause();
+  }
+  turnUpAudio() {
+    if (this.audio.volume < 1) {
+      this.audio.volume += 0.1;
+    }
+  }
+  turnDownAudio() {
+    if (this.audio.volume > 0) {
+      this.audio.volume -= 0.1;
+    }
   }
 
   // triggerFooterUp() {
