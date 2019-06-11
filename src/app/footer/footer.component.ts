@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FooterUpService } from "../footer-up.service";
 import { Router } from "@angular/router";
 import { Song } from "../music/song";
+import { SongManagerService } from "../song-manager.service";
+// import { Observable, of } from "rxjs";
 
 @Component({
   selector: "app-footer",
@@ -11,15 +13,21 @@ import { Song } from "../music/song";
 export class FooterComponent implements OnInit {
   footerUp: boolean;
   audio = new Audio();
+  selectedSong: Song;
 
   constructor(
     private footerUpService: FooterUpService,
-    private router: Router
+    private router: Router,
+    public songManagerService: SongManagerService
   ) {
     // this.footerUp = footerUpService.footerUp;
 
     this.currentlyOnHome = true;
-    router.events.subscribe(val => {
+  }
+
+  ngOnInit() {
+    this.footerUp = false;
+    this.router.events.subscribe(val => {
       if (val.hasOwnProperty("url")) {
         if (val["url"] === "/home" || val["url"] === "/") {
           this.currentlyOnHome = true;
@@ -28,15 +36,58 @@ export class FooterComponent implements OnInit {
         }
       }
     });
+
+    this.songManagerService.currentSong.subscribe(song => {
+      this.selectedSong = song;
+      console.log(this.selectedSong);
+    });
+
+    // this.selectedSong = {
+    //   name: "80's Car",
+    //   link: "../../assets/space_ad_petes.wav",
+    // };
+
+    // this.subscribeToThing();
+
+    // this.songManagerService
+    //   .newSongSelection(this.selectedSong)
+    //   .subscribe(songObj => {
+    //     this.audio.src = "../../assets/" + songObj.link;
+    //     this.startNewAudio();
+    //   });
+
+    // {
+    // console.log(songObj);
+    // this.audio.src = "../../assets/" + songObj.link;
+    // this.startNewAudio();
+    // }
+
+    // this.songManagerService.transmitSong().subscribe(songObj => {
+    //   this.selectedSong = songObj;
+    //   console.log(this.selectedSong);
+    // });
+
+    // this.musicComponent.transmitSong().subscribe(songObj => {
+    //   this.selectedSong = songObj;
+    //   console.log(this.selectedSong);
+    // });
   }
-  ngOnInit() {
-    this.footerUp = false;
-    this.selectedSong = {
-      name: "80's Car",
-      link: "../../assets/space_ad_petes.wav",
-    };
-  }
-  selectedSong: Song;
+  // subscribeToThing() {
+  //   this.songManagerService.sendSignal().subscribe(
+  //     //   stringComingIn => {
+  //     //   console.log(stringComingIn);
+  //     // }
+  //     function(x) {
+  //       this.pickANewSong(x);
+  //     },
+  //     function(err) {
+  //       console.log("error: " + err);
+  //     },
+  //     function() {
+  //       console.log("done!");
+  //     }
+  //   );
+  // }
 
   pickANewSong(newSong) {
     // this.selectedSong = newSong;
@@ -53,22 +104,33 @@ export class FooterComponent implements OnInit {
 
   startNewAudio(a?) {
     // this.audio = new Audio();
-    this.audio.src = "../../assets/" + (a ? a : "space_ad_petes.wav");
-    this.audio.load();
-    this.audio.play();
+    // this.songManagerService.newSongSelection(a).subscribe(songObj => {
+    //   this.audio.src = "../../assets/" + songObj.link;
+    // });
+
+    console.log(this.audio.src);
+    // this.audio.src = "../../assets/" + (a ? a : "space_ad_petes.wav");
+    // this.audio.load();
+    // this.audio.play();
   }
 
   playAudio(a?) {
     // console.log("playing!");
     // if (this.audio && this.audio.hasOwnProperty("src")) {
-    this.audio.play();
+
+    // this.audio.play();
+
+    this.songManagerService.sendSignal();
+
     // } else {
     //   this.startNewAudio();
     // }
   }
+
   pauseAudio() {
     this.audio.pause();
   }
+
   turnUpAudio() {
     if (this.audio.volume < 1) {
       this.audio.volume += 0.1;
@@ -79,9 +141,4 @@ export class FooterComponent implements OnInit {
       this.audio.volume -= 0.1;
     }
   }
-
-  // triggerFooterUp() {
-  //   this.footerUp = !this.footerUp;
-  //   console.log(this.footerUp);
-  // }
 }

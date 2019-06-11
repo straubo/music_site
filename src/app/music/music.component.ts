@@ -9,7 +9,8 @@ import {
   query,
   stagger,
 } from "@angular/animations";
-// import { FooterComponent } from "../footer/footer.component";
+import { SongManagerService } from "../song-manager.service";
+import { Observable, of } from "rxjs";
 
 @Component({
   selector: "app-music",
@@ -44,42 +45,45 @@ import {
   ],
 })
 export class MusicComponent implements OnInit {
-  constructor() // private footerComponent: FooterComponent
-  {}
+  constructor(
+    // public?
+    public songManagerService: SongManagerService // private footerComponent: FooterComponent
+  ) {}
 
   ngOnInit() {
     this.songs = [
+      // ../../assets/
       {
         name: "Melancholy",
-        link: "../../assets/melancholy2_recording12_3.wav",
+        link: "melancholy2_recording12_3.wav",
       },
       {
         name: "Pillows",
-        link: "../../assets/2-8-18_mix7.wav",
+        link: "2-8-18_mix7.wav",
       },
       {
         name: "80's Car",
-        link: "../../assets/space_ad_petes.wav",
+        link: "space_ad_petes.wav",
       },
       {
         name: "amen_1",
-        link: "../../assets/space_eli_ad3.wav",
+        link: "space_eli_ad3.wav",
       },
       {
         name: "Angular",
-        link: "../../assets/winnie_2.wav",
+        link: "winnie_2.wav",
       },
       {
         name: "spooky",
-        link: "../../assets/candyland.wav",
+        link: "candyland.wav",
       },
       {
         name: "bad dream",
-        link: "../../assets/big_chirp.wav",
+        link: "big_chirp.wav",
       },
       {
         name: "another",
-        link: "../../assets/C_drone1.wav",
+        link: "C_drone1.wav",
       },
     ];
     this.videos = ["video1", "video2", "video3"];
@@ -112,6 +116,13 @@ export class MusicComponent implements OnInit {
   selectedSong: Song;
 
   setAudioSrc(clickedSong) {
-    this.selectedSong = clickedSong;
+    // this.selectedSong = clickedSong;
+    this.songManagerService.newSongSelection(clickedSong);
   }
+  // setAudioSrc(clickedSong) {
+  //   this.selectedSong = clickedSong;
+  // }
+  // transmitSong(): Observable<Song> {
+  //   return of(this.selectedSong);
+  // }
 }

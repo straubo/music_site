@@ -9,6 +9,7 @@
 .songsContainer {
   display: flex;
   flex-wrap: wrap;
+  width: 62%;
 }
 
 .musicContainer {
