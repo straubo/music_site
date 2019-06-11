@@ -13,15 +13,15 @@ import { SongManagerService } from "../song-manager.service";
 export class FooterComponent implements OnInit {
   footerUp: boolean;
   audio = new Audio();
-  selectedSong: Song;
+  // selectedSong: Song;
+  currentlyOnHome: boolean;
+  initialized: boolean;
 
   constructor(
     private footerUpService: FooterUpService,
     private router: Router,
     public songManagerService: SongManagerService
   ) {
-    // this.footerUp = footerUpService.footerUp;
-
     this.currentlyOnHome = true;
   }
 
@@ -36,92 +36,33 @@ export class FooterComponent implements OnInit {
         }
       }
     });
+    this.initialized = false;
 
     this.songManagerService.currentSong.subscribe(song => {
-      this.selectedSong = song;
-      console.log(this.selectedSong);
+      // this.selectedSong = song;
+      // console.log(this.selectedSong);
+      this.startNewAudio(song);
     });
-
-    // this.selectedSong = {
-    //   name: "80's Car",
-    //   link: "../../assets/space_ad_petes.wav",
-    // };
-
-    // this.subscribeToThing();
-
-    // this.songManagerService
-    //   .newSongSelection(this.selectedSong)
-    //   .subscribe(songObj => {
-    //     this.audio.src = "../../assets/" + songObj.link;
-    //     this.startNewAudio();
-    //   });
-
-    // {
-    // console.log(songObj);
-    // this.audio.src = "../../assets/" + songObj.link;
-    // this.startNewAudio();
-    // }
-
-    // this.songManagerService.transmitSong().subscribe(songObj => {
-    //   this.selectedSong = songObj;
-    //   console.log(this.selectedSong);
-    // });
-
-    // this.musicComponent.transmitSong().subscribe(songObj => {
-    //   this.selectedSong = songObj;
-    //   console.log(this.selectedSong);
-    // });
   }
-  // subscribeToThing() {
-  //   this.songManagerService.sendSignal().subscribe(
-  //     //   stringComingIn => {
-  //     //   console.log(stringComingIn);
-  //     // }
-  //     function(x) {
-  //       this.pickANewSong(x);
-  //     },
-  //     function(err) {
-  //       console.log("error: " + err);
-  //     },
-  //     function() {
-  //       console.log("done!");
-  //     }
-  //   );
-  // }
-
-  pickANewSong(newSong) {
-    // this.selectedSong = newSong;
-    this.startNewAudio(newSong.link);
-  }
-
-  currentlyOnHome: boolean;
-  timeToToggle() {
-    // this.footerUpService.toggleFooter();
-    this.footerUp = !this.footerUp;
-  }
-
   // audio player stuff:
 
-  startNewAudio(a?) {
-    // this.audio = new Audio();
-    // this.songManagerService.newSongSelection(a).subscribe(songObj => {
-    //   this.audio.src = "../../assets/" + songObj.link;
-    // });
+  startNewAudio(newSongObj) {
+    this.audio.src = "../../assets/" + newSongObj.link;
+    // console.log(this.audio.src);
+    this.audio.load();
+    if (this.initialized) {
+      this.audio.play();
+    } else {
+      this.initialized = true;
+    }
 
-    console.log(this.audio.src);
     // this.audio.src = "../../assets/" + (a ? a : "space_ad_petes.wav");
-    // this.audio.load();
-    // this.audio.play();
   }
 
-  playAudio(a?) {
+  playAudio() {
     // console.log("playing!");
     // if (this.audio && this.audio.hasOwnProperty("src")) {
-
-    // this.audio.play();
-
-    this.songManagerService.sendSignal();
-
+    this.audio.play();
     // } else {
     //   this.startNewAudio();
     // }
@@ -140,5 +81,11 @@ export class FooterComponent implements OnInit {
     if (this.audio.volume > 0) {
       this.audio.volume -= 0.1;
     }
+  }
+  // ---------------------------------
+
+  timeToToggle() {
+    // this.footerUpService.toggleFooter();
+    this.footerUp = !this.footerUp;
   }
 }
