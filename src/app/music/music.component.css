@@ -9,7 +9,9 @@
 .songsContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 62%;
+  /* width: 62%; */
+  width: 100%;
+  max-width: 775px;
 }
 
 .musicContainer {
@@ -57,10 +59,6 @@
 .songContainer:hover {
   box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
 }
-/* .songContainer:hover {
-  filter: brightness(150%);
-} */
-
 .videosContainer {
   display: flex;
   justify-content: center;
@@ -81,3 +79,9 @@
   font-size: 25px;
   color: #f0ead6;
 }
+
+/* @media (max-width: 775px) {
+  .songsContainer {
+    width: 100%;
+  }
+} */

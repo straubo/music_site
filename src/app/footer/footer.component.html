@@ -4,16 +4,7 @@
   </button>
   <div class="allButButton">
     <div *ngIf="footerUp" class="playerContainer">
-      <!-- <audio>
-        <source src="{{ selectedSong.link }}" />
-      </audio> -->
       <div>
-        <button
-          (click)="startNewAudio('space_ad_petes.wav')"
-          class="audioButton"
-        >
-          nu
-        </button>
         <button (click)="playAudio()" class="audioButton">play</button>
         <button (click)="pauseAudio()" class="audioButton">pause</button>
         <button (click)="turnUpAudio()" class="audioButton">

@@ -16,7 +16,6 @@
   color: #f0ead6;
   width: 80%;
   margin-left: 12px;
-  /* font-family: "Source Sans Pro"; */
 }
 
 .alreadyHappened {
@@ -24,21 +23,11 @@
 }
 
 .gigsContainer {
-  /* height: 85vh; */
   height: 100%;
-  /* background-image: linear-gradient(black, black),
-    url("../../assets/ob_korg1.jpg");
-  background-size: cover;
-  background-blend-mode: saturation; */
 }
 
 .innerGigsContainer {
-  /* padding: 40px 20px; */
-  /* max-height: 73vh; */
-  /* min-height: 65vh; */
   height: calc(85vh - 40px);
-  /* height: 85vh; */
-  /* height: 100%; */
   overflow-y: scroll;
   display: flex;
   justify-content: space-between;
@@ -50,13 +39,19 @@
   height: 0;
 }
 
+.showsHeader {
+  font-size: 38px;
+  color: #f0ead6;
+  text-align: center;
+  margin: 10px auto;
+}
+
 /* -------------------------------- */
 
 .selectedGigDiv {
   text-align: center;
   width: 85%;
   z-index: 5;
-  /* height: 75vh; */
   height: 70vh;
   padding-top: 10px;
   position: absolute;
@@ -65,7 +60,6 @@
   top: 20vh;
   margin: 25px auto 0 auto;
   background-color: #bcbcbce0;
-  /*rgba(124, 124, 133, 0.877); */
   border-radius: 6px;
 }
 
@@ -117,14 +111,5 @@
 }
 
 .otherActName {
-  /* text-decoration: underline; */
   font-weight: bold;
-}
-
-/* -------------------------------- */
-
-@media (min-width: 750px) {
-  /* .gigsContainer {
-    margin: 40px;
-  } */
 }

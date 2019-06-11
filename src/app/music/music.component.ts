@@ -10,7 +10,6 @@ import {
   stagger,
 } from "@angular/animations";
 import { SongManagerService } from "../song-manager.service";
-import { Observable, of } from "rxjs";
 
 @Component({
   selector: "app-music",
@@ -23,7 +22,6 @@ import { Observable, of } from "rxjs";
           ".songContainer",
           style({
             opacity: 0,
-            // left: "-100vh",
             transform: "translateX(-100vw)",
           }),
           { optional: true }
@@ -34,7 +32,6 @@ import { Observable, of } from "rxjs";
               "500ms ease-out",
               style({
                 opacity: 1,
-                // left: 0
                 transform: "translateX(0)",
               })
             ),
@@ -45,14 +42,10 @@ import { Observable, of } from "rxjs";
   ],
 })
 export class MusicComponent implements OnInit {
-  constructor(
-    // public?
-    public songManagerService: SongManagerService // private footerComponent: FooterComponent
-  ) {}
+  constructor(public songManagerService: SongManagerService) {}
 
   ngOnInit() {
     this.songs = [
-      // ../../assets/
       {
         name: "Melancholy",
         link: "melancholy2_recording12_3.wav",
@@ -116,13 +109,6 @@ export class MusicComponent implements OnInit {
   selectedSong: Song;
 
   setAudioSrc(clickedSong) {
-    // this.selectedSong = clickedSong;
     this.songManagerService.newSongSelection(clickedSong);
   }
-  // setAudioSrc(clickedSong) {
-  //   this.selectedSong = clickedSong;
-  // }
-  // transmitSong(): Observable<Song> {
-  //   return of(this.selectedSong);
-  // }
 }

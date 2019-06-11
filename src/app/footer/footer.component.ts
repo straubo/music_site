@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FooterUpService } from "../footer-up.service";
 import { Router } from "@angular/router";
-import { Song } from "../music/song";
 import { SongManagerService } from "../song-manager.service";
-// import { Observable, of } from "rxjs";
 
 @Component({
   selector: "app-footer",
@@ -13,7 +11,6 @@ import { SongManagerService } from "../song-manager.service";
 export class FooterComponent implements OnInit {
   footerUp: boolean;
   audio = new Audio();
-  // selectedSong: Song;
   currentlyOnHome: boolean;
   initialized: boolean;
 
@@ -39,8 +36,6 @@ export class FooterComponent implements OnInit {
     this.initialized = false;
 
     this.songManagerService.currentSong.subscribe(song => {
-      // this.selectedSong = song;
-      // console.log(this.selectedSong);
       this.startNewAudio(song);
     });
   }
@@ -48,24 +43,16 @@ export class FooterComponent implements OnInit {
 
   startNewAudio(newSongObj) {
     this.audio.src = "../../assets/" + newSongObj.link;
-    // console.log(this.audio.src);
     this.audio.load();
     if (this.initialized) {
       this.audio.play();
     } else {
       this.initialized = true;
     }
-
-    // this.audio.src = "../../assets/" + (a ? a : "space_ad_petes.wav");
   }
 
   playAudio() {
-    // console.log("playing!");
-    // if (this.audio && this.audio.hasOwnProperty("src")) {
     this.audio.play();
-    // } else {
-    //   this.startNewAudio();
-    // }
   }
 
   pauseAudio() {
@@ -85,7 +72,6 @@ export class FooterComponent implements OnInit {
   // ---------------------------------
 
   timeToToggle() {
-    // this.footerUpService.toggleFooter();
     this.footerUp = !this.footerUp;
   }
 }

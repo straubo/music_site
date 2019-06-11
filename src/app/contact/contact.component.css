@@ -1,7 +1,6 @@
 .container {
   color: #f0ead6;
   z-index: 5;
-  /* padding-top: 20px; */
 }
 .dynamicContainer {
   z-index: -5;
@@ -14,8 +13,6 @@
   width: 85%;
   max-width: 450px;
   margin: 10px auto;
-  /* background-color: #841313; */
-  /* background-color: #426ca0; */
   background-color: #235635;
 }
 .form-group label {
