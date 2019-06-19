@@ -37,6 +37,8 @@ import {
   ],
 })
 export class NavbarComponent implements OnInit {
+  currentlyOnHome: boolean;
+  mobileNavOpen: boolean;
   constructor(private router: Router) {
     this.currentlyOnHome = true;
     router.events.subscribe(val => {
@@ -49,7 +51,13 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
-  currentlyOnHome: boolean;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.mobileNavOpen = false;
+  }
+
+  mobileNavClick() {
+    this.mobileNavOpen = !this.mobileNavOpen;
+    console.log(this.mobileNavOpen);
+  }
 }

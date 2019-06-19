@@ -1,29 +1,36 @@
-<!-- *ngIf="router.url != '/home'" -->
-<!-- [@routerIn]="router.url != '/home' ? 'in' : 'out'" -->
 <div id="totalNavbar" [@routerIn]="currentlyOnHome ? 'out' : 'in'">
-  <div class="siteHeader" routerLink="/home">
-    <!-- casey berman -->
-    CASEY BERMAN
+  <div class="headerContainer">
+    <div class="mobileMenuContainer headerItem" (click)="mobileNavClick()">
+      <span class="leftX ex">|</span>
+      <span class="middleX ex">|</span>
+      <span class="rightX ex">|</span>
+    </div>
+    <div class="siteHeader headerItem" routerLink="/home">
+      CASEY BERMAN
+      <!-- name -->
+    </div>
   </div>
-  <div
-    class="routerLink"
-    routerLink="music"
-    [ngClass]="{ currentRoute: router.url === '/music' }"
-  >
-    music
-  </div>
-  <div
-    class="routerLink"
-    routerLink="gigs"
-    [ngClass]="{ currentRoute: router.url === '/gigs' }"
-  >
-    gigs
-  </div>
-  <div
-    class="routerLink"
-    routerLink="contact"
-    [ngClass]="{ currentRoute: router.url === '/contact' }"
-  >
-    contact
+  <div class="routerLinksContainer">
+    <div
+      class="routerLink"
+      routerLink="music"
+      [ngClass]="{ currentRoute: router.url === '/music' }"
+    >
+      music
+    </div>
+    <div
+      class="routerLink"
+      routerLink="gigs"
+      [ngClass]="{ currentRoute: router.url === '/gigs' }"
+    >
+      gigs
+    </div>
+    <div
+      class="routerLink"
+      routerLink="contact"
+      [ngClass]="{ currentRoute: router.url === '/contact' }"
+    >
+      contact
+    </div>
   </div>
 </div>

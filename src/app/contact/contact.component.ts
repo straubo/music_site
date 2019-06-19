@@ -37,13 +37,16 @@ import { Email } from "../email";
 })
 export class ContactComponent implements OnInit, OnDestroy {
   constructor(private resolver: ComponentFactoryResolver) {}
+
   @ViewChild(RainContainerDirective) rainHost: RainContainerDirective;
+
   looper;
   viewContainerRef;
-  model = new Email("", "");
+  model = new Email("", "", "");
   formIn: boolean;
   formHeaderIn: boolean;
   timerTillRainStops;
+
   setTimer() {
     this.timerTillRainStops = setTimeout(() => {
       clearInterval(this.looper);
@@ -62,6 +65,7 @@ export class ContactComponent implements OnInit, OnDestroy {
       this.addRaindrop();
     }, 450);
   }
+
   addRaindrop() {
     let componentFactory = this.resolver.resolveComponentFactory(
       RaindropComponent
@@ -70,20 +74,28 @@ export class ContactComponent implements OnInit, OnDestroy {
     let componentRef = this.viewContainerRef.createComponent(componentFactory);
   }
 
-  submitted = false;
-
-  onSubmit() {
-    this.submitted = true;
-  }
   ngOnInit() {
     this.formIn = false;
     this.formHeaderIn = false;
     this.setTimer();
   }
+
   ngOnDestroy() {
     if (this.looper) {
       clearInterval(this.looper);
     }
     this.viewContainerRef.clear();
+  }
+  // form stuff below:
+
+  submitted = false;
+
+  onSubmit() {
+    this.submitted = true;
+  }
+
+  newEmailForm() {
+    console.log(this.model);
+    this.model = new Email("", "", "");
   }
 }

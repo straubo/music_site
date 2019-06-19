@@ -3,13 +3,20 @@
 </div>
 <div class="container">
   <div id="contactHeader" *ngIf="formHeaderIn" [@fadeIn]>contact</div>
-  <form class="emailForm" #emailForm="ngForm" *ngIf="formIn" [@fadeIn]>
+  <form
+    class="emailForm"
+    #emailForm="ngForm"
+    *ngIf="formIn"
+    [@fadeIn]
+    (ngSubmit)="onSubmit(); newEmailForm(); emailForm.reset()"
+  >
     <div class="form-group">
       <label for="fromEmail">from: (return email)</label>
       <input
-        type="text"
+        type="email"
         class="form-control"
         id="fromEmail"
+        email
         required
         [(ngModel)]="model.fromEmail"
         name="fromEmail"
@@ -21,6 +28,7 @@
         type="text"
         class="form-control"
         id="emailSubject"
+        required
         [(ngModel)]="model.subject"
         name="subject"
       />
@@ -36,6 +44,12 @@
         name="body"
       ></textarea>
     </div>
-    <button type="submit" class="submitButton">submit</button>
+    <button
+      type="submit"
+      class="submitButton"
+      [disabled]="!emailForm.form.valid"
+    >
+      submit
+    </button>
   </form>
 </div>
