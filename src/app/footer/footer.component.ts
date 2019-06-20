@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { FooterUpService } from "../footer-up.service";
 import { Router } from "@angular/router";
 import { SongManagerService } from "../song-manager.service";
 
@@ -15,7 +14,6 @@ export class FooterComponent implements OnInit {
   initialized: boolean;
 
   constructor(
-    private footerUpService: FooterUpService,
     private router: Router,
     public songManagerService: SongManagerService
   ) {

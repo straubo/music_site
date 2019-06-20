@@ -9,6 +9,7 @@ import {
   query,
   stagger,
 } from "@angular/animations";
+import { MobileNavService } from "../mobile-nav.service";
 // import { url } from "inspector";
 
 @Component({
@@ -34,12 +35,68 @@ import {
       transition("out => in", [animate(".7s 300ms ease-in-out")]),
       transition("in => out", [animate(".7s 300ms ease-in-out")]),
     ]),
+    trigger("topMenuBar", [
+      state(
+        "inactive",
+        style({
+          top: "-5px",
+          transform: "rotateZ(90deg)",
+          left: "14px",
+        })
+      ),
+      state(
+        "active",
+        style({
+          top: "0px",
+          transform: "rotateZ(45deg)",
+          left: "13px",
+        })
+      ),
+      transition("inactive <=> active", [animate("300ms")]),
+    ]),
+    trigger("middleMenuBar", [
+      state(
+        "inactive",
+        style({
+          opacity: 1,
+        })
+      ),
+      state(
+        "active",
+        style({
+          opacity: 0,
+        })
+      ),
+      transition("inactive <=> active", [animate("50ms")]),
+    ]),
+    trigger("bottomMenuBar", [
+      state(
+        "inactive",
+        style({
+          top: "5px",
+          transform: "rotateZ(90deg)",
+          left: "14px",
+        })
+      ),
+      state(
+        "active",
+        style({
+          top: "2px",
+          transform: "rotateZ(135deg)",
+          left: "13px",
+        })
+      ),
+      transition("inactive <=> active", [animate("300ms")]),
+    ]),
   ],
 })
 export class NavbarComponent implements OnInit {
   currentlyOnHome: boolean;
   mobileNavOpen: boolean;
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    public mobileNavService: MobileNavService
+  ) {
     this.currentlyOnHome = true;
     router.events.subscribe(val => {
       if (val.hasOwnProperty("url")) {
@@ -50,14 +107,17 @@ export class NavbarComponent implements OnInit {
         }
       }
     });
+    this.mobileNavService.mobileNavActive.subscribe(bool => {
+      this.mobileNavOpen = bool;
+    });
   }
 
   ngOnInit() {
-    this.mobileNavOpen = false;
+    // this.mobileNavOpen = false;
   }
-
+  // this.mobileNavOpen = !this.mobileNavOpen;
+  //   console.log(this.mobileNavOpen);
   mobileNavClick() {
-    this.mobileNavOpen = !this.mobileNavOpen;
-    console.log(this.mobileNavOpen);
+    this.mobileNavService.mobileNavClick();
   }
 }

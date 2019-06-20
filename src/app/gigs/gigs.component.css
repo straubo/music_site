@@ -14,8 +14,9 @@
 }
 .gigDate {
   color: #f0ead6;
-  width: 80%;
-  margin-left: 12px;
+  width: 72%;
+  margin-left: 14px;
+  text-align: center;
 }
 
 .alreadyHappened {
@@ -27,7 +28,7 @@
 }
 
 .innerGigsContainer {
-  height: calc(85vh - 40px);
+  height: calc(85vh - 115px);
   overflow-y: scroll;
   display: flex;
   justify-content: space-between;
@@ -51,6 +52,7 @@
 .selectedGigDiv {
   text-align: center;
   width: 85%;
+  max-width: 450px;
   z-index: 5;
   height: 70vh;
   padding-top: 10px;

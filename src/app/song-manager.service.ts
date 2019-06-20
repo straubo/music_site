@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Song } from "./music/song";
-import { Observable, of } from "rxjs";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({

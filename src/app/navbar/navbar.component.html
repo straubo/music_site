@@ -1,9 +1,21 @@
 <div id="totalNavbar" [@routerIn]="currentlyOnHome ? 'out' : 'in'">
   <div class="headerContainer">
     <div class="mobileMenuContainer headerItem" (click)="mobileNavClick()">
-      <span class="leftX ex">|</span>
-      <span class="middleX ex">|</span>
-      <span class="rightX ex">|</span>
+      <span
+        class="leftX ex"
+        [@topMenuBar]="mobileNavOpen ? 'active' : 'inactive'"
+        >|</span
+      >
+      <span
+        class="middleX ex"
+        [@middleMenuBar]="mobileNavOpen ? 'active' : 'inactive'"
+        >|</span
+      >
+      <span
+        class="rightX ex"
+        [@bottomMenuBar]="mobileNavOpen ? 'active' : 'inactive'"
+        >|</span
+      >
     </div>
     <div class="siteHeader headerItem" routerLink="/home">
       CASEY BERMAN

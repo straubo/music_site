@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { RouterOutlet, Router } from "@angular/router";
 import { slideInAnimation } from "./animations";
 import {
@@ -10,6 +10,7 @@ import {
   query,
   stagger,
 } from "@angular/animations";
+import { MobileNavService } from "./mobile-nav.service";
 
 @Component({
   selector: "app-root",
@@ -34,8 +35,13 @@ import {
     ]),
   ],
 })
-export class AppComponent {
-  constructor(private router: Router) {
+export class AppComponent implements OnInit {
+  currentlyOnHome: boolean;
+  mobileNavDisplay: boolean;
+  constructor(
+    private router: Router,
+    public mobileNavService: MobileNavService
+  ) {
     this.currentlyOnHome = true;
     router.events.subscribe(val => {
       if (val.hasOwnProperty("url")) {
@@ -46,14 +52,17 @@ export class AppComponent {
         }
       }
     });
+    this.mobileNavService.mobileNavActive.subscribe(bool => {
+      this.mobileNavDisplay = bool;
+    });
   }
-  currentlyOnHome: boolean;
+  ngOnInit() {}
+
   prepareRoute(outlet: RouterOutlet) {
     return (
       outlet &&
       outlet.activatedRouteData &&
       outlet.activatedRouteData["animation"]
     );
-    // console.log(outlet);
   }
 }
