@@ -9,6 +9,7 @@ import {
   transition,
   query,
   stagger,
+  animateChild,
 } from "@angular/animations";
 import { MobileNavService } from "./mobile-nav.service";
 
@@ -33,6 +34,24 @@ import { MobileNavService } from "./mobile-nav.service";
       ),
       transition("shorter <=> longer", [animate(".7s 300ms ease-in-out")]),
     ]),
+    // trigger("mobileNavIn", [
+    //   state(
+    //     "in",
+    //     style({
+    //       opacity: 1,
+    //     })
+    //   ),
+    //   state(
+    //     "out",
+    //     style({
+    //       opacity: 0,
+    //     })
+    //   ),
+    //   transition("in <=> out", [
+    //     animate("300ms ease-in-out"),
+    //     query("@mobileNavIn", animateChild()),
+    //   ]),
+    // ]),
   ],
 })
 export class AppComponent implements OnInit {

@@ -5,6 +5,7 @@
   [@shorterBody]="currentlyOnHome ? 'longer' : 'shorter'"
 >
   <div class="mobileNavBarContainer" *ngIf="mobileNavDisplay">
+    <!-- [@mobileNavIn]="mobileNavDisplay ? in : out" -->
     <app-mobile-nav></app-mobile-nav>
   </div>
   <router-outlet #outlet="outlet"></router-outlet>

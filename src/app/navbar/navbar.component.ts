@@ -52,7 +52,7 @@ import { MobileNavService } from "../mobile-nav.service";
           left: "13px",
         })
       ),
-      transition("inactive <=> active", [animate("300ms")]),
+      transition("inactive <=> active", [animate("100ms")]),
     ]),
     trigger("middleMenuBar", [
       state(
@@ -86,7 +86,7 @@ import { MobileNavService } from "../mobile-nav.service";
           left: "13px",
         })
       ),
-      transition("inactive <=> active", [animate("300ms")]),
+      transition("inactive <=> active", [animate("100ms")]),
     ]),
   ],
 })
