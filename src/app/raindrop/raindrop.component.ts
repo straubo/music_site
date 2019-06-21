@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  HostBinding,
-  ComponentRef,
-  // Output,
-  // EventEmitter,
-} from "@angular/core";
+import { Component, OnInit, ComponentRef } from "@angular/core";
 import {
   trigger,
   state,
@@ -30,9 +23,7 @@ import {
       ]),
     ]),
 
-    // animate(1100, style({ "stroke-dashoffset": 0 })),
     trigger("rainDrip1In", [
-      // transition("closed => open", [
       state("*", style({ "stroke-dashoffset": 0 })),
       transition("void => *", [
         style({
@@ -43,7 +34,6 @@ import {
       ]),
     ]),
     trigger("rainDrip2In", [
-      // transition("closed => open", [
       state("*", style({ "stroke-dashoffset": 0 })),
       transition("void => *", [
         style({
@@ -68,16 +58,11 @@ import {
 export class RaindropComponent implements OnInit {
   cmpRef: ComponentRef<Component>;
   constructor() {}
-  // @Output() onAnimationComplete: EventEmitter<any> = new EventEmitter();
-  // @Output() onAnimationComplete = new EventEmitter<any>();
   animateDrips = false;
   completedFull = false;
   _ref: any;
 
   completeAnimation() {
-    // this.onAnimationComplete.emit();
-    // this._ref.destroy();
-    // this.cmpRef.destroy();
     this.completedFull = true;
   }
   coordinates;

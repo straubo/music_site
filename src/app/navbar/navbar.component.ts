@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import {
   trigger,
@@ -6,11 +6,8 @@ import {
   style,
   animate,
   transition,
-  query,
-  stagger,
 } from "@angular/animations";
 import { MobileNavService } from "../mobile-nav.service";
-// import { url } from "inspector";
 
 @Component({
   selector: "app-navbar",
@@ -90,9 +87,10 @@ import { MobileNavService } from "../mobile-nav.service";
     ]),
   ],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   currentlyOnHome: boolean;
   mobileNavOpen: boolean;
+
   constructor(
     private router: Router,
     public mobileNavService: MobileNavService
@@ -112,11 +110,6 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    // this.mobileNavOpen = false;
-  }
-  // this.mobileNavOpen = !this.mobileNavOpen;
-  //   console.log(this.mobileNavOpen);
   mobileNavClick() {
     this.mobileNavService.mobileNavClick();
   }

@@ -18,7 +18,7 @@ import {
   transition,
 } from "@angular/animations";
 
-import { Email } from "../email";
+import { Email } from "./email";
 
 @Component({
   selector: "app-contact",
