@@ -79,7 +79,8 @@ export class MusicComponent implements OnInit {
         link: "C_drone1.wav",
       },
     ];
-    this.videos = ["video1", "video2", "video3"];
+    // "video1", "video2", "video3"
+    this.videos = [];
     this.colors = [
       //dark blue
       "#192f7e",
