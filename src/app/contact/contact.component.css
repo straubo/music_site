@@ -50,6 +50,11 @@ textarea.form-control {
   background-color: #f0ead6;
 }
 
+#emailAddress {
+  text-align: center;
+  padding-top: 20vh;
+}
+
 @media (min-height: 720px) {
   .container {
     padding-top: 20px;

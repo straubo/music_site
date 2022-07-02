@@ -47,35 +47,35 @@ export class MusicComponent implements OnInit {
   ngOnInit() {
     this.songs = [
       {
-        name: "Melancholy",
-        link: "melancholy2_recording12_3.wav",
+        name: "pillows",
+        link: "pillowbeam_2.m4a",
       },
       {
-        name: "Pillows",
-        link: "2-8-18_mix7.wav",
+        name: "someone elses home",
+        link: "6_someone_elses_home.m4a",
       },
       {
-        name: "80's Car",
-        link: "space_ad_petes.wav",
+        name: "cone 6",
+        link: "5_transmission.m4a",
       },
       {
-        name: "amen_1",
-        link: "space_eli_ad3.wav",
+        name: "partytime",
+        link: "party_time.m4a",
       },
       {
-        name: "Angular",
+        name: "night wind",
         link: "winnie_2.wav",
       },
       {
-        name: "spooky",
+        name: "podium",
         link: "candyland.wav",
       },
       {
-        name: "bad dream",
+        name: "history without mystery",
         link: "big_chirp.wav",
       },
       {
-        name: "another",
+        name: "you wanted this before",
         link: "C_drone1.wav",
       },
     ];
